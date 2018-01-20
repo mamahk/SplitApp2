@@ -1,0 +1,136 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "sap.ui.demo.splitApp2",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"ach": "CA-UI5-FST",
+		"dataSources": {
+			"employeeRemote": {
+				"uri": "/here/goes/your/serviceUrl/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri" : "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_belize"]
+  	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": "sap.ui.demo.splitApp2.view.App",
+		"handleValidation" : true,
+		"dependencies": {
+			"minUI5Version": "1.50",
+			"libs": {
+				"sap.m": { }
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.ui.demo.splitApp2.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "employeeRemote",				
+				"settings" : {
+					"defaultBindingMode" : "TwoWay"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.ui.demo.splitApp2.view",
+				"controlId": "splitApp",
+				"controlAggregation": "detailPages",
+				"transition" : "show",
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [
+				
+				{
+					"pattern": "",
+					"name": "master",
+					"greedy" : false,
+					"target": ["empty", "master"]
+				},
+				{
+					"pattern": "Employee/{employeeId}",
+					"name": "employee",
+					"greedy" : false,
+					"target":  ["master", "employeeDetail"]
+				},
+				
+				{
+					"pattern": "NewEmployee",
+					"name": "newEmployee",
+					"greedy" : false,
+					"target":  ["master", "newEmployee"]
+				},
+				
+				
+				{
+					"pattern": "quickDemo",
+					"name": "quickDemo1",
+					"target": "demo1"
+				}
+			
+			],
+			"targets": {
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"master" : {
+					"viewName" : "EmployeeList",
+					"viewId" : "employeeList",
+					"controlAggregation": "masterPages",
+					"clearAggregation" : true
+				},
+				"empty" : {
+					"viewName" : "Empty"
+				},
+				
+				"employeeDetail" : {
+					"viewName" : "Employee",
+					"viewId" : "employeeDetail",
+					"clearAggregation" : true
+				},
+				
+				"demo1" : {
+					"viewName" : "messageTesting",
+					"viewId" : "messageTesting",
+					"clearAggregation" : true
+				},
+				
+				"newEmployee" : {
+					"viewName" : "NewEmployee",
+					"viewId" : "newEmployee",
+					"clearAggregation" : true
+				}
+			}
+		}
+	}
+}

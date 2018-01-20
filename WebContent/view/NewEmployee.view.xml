@@ -1,0 +1,51 @@
+<mvc:View
+	controllerName="sap.ui.demo.splitApp2.controller.NewEmployee"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.ui.layout.form"
+	busyIndicatorDelay="0">
+	<Page
+		id="employeePage"
+		title="New Employee"
+		showNavButton="{device>/system/phone}" navButtonPress="onNavBack"
+		class="sapUiResponsiveContentPadding">
+		<content>
+			<Panel
+				id="employeePanel"
+				width="auto"
+				class="sapUiResponsiveMargin sapUiNoContentPadding">
+				
+				<content>
+					<f:SimpleForm
+						minWidth="1024"
+						editable="false"
+						layout="ResponsiveGridLayout"
+						labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+						columnsL="1" columnsM="1">
+						<f:content>
+<!-- 							<Label text="Employee ID" /> -->
+<!-- 							<Input type="Number" value="{EmployeeID}" id="EmployeeID" editable="false" /> -->
+							<Label text="{i18n>FirstName}" />
+							<Input value="{FirstName}" />
+							<Label text="{i18n>LastName}" />
+							<Input value="{LastName}" />
+							<Label text="{i18n>Address}" />
+							<Input value="{Address}" />
+							<Label text="{i18n>City}" />
+							<Input value="{City}" />
+							<Label text="{i18n>Region}" />
+							<Input value="{Region}" />
+							<Label text="{i18n>PostalCode}" />
+							<Input value="{PostalCode}" />
+							<Label text="{i18n>PhoneHome}" />
+							<Input value="{HomePhone}" />
+							<Label text="{i18n>Country}" />
+							<Input value="{Country}" />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+			<Button id="SaveNewEmployee" press="onClick" text="Save" />
+		</content>
+	</Page>
+</mvc:View>
