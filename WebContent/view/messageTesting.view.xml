@@ -7,7 +7,7 @@
 		>
 	<Page title="Testing for message" >
 		<content  >
-			<Input id="IMT" value="{Dummy>/d/results/1/ProductId}" width="200px" change="onValueChange" class="sapUiLargeMarginBegin sapUiTinyMarginTop" />
+			<Input id="IMT" value="{Dummy>/Testing}" width="200px" change="onValueChange" class="sapUiLargeMarginBegin sapUiTinyMarginTop" />
 			<ec:HoverButton text="This is the HoverButton" class="sapUiLargeMarginBegin sapUiTinyMarginTop" hover="onHover" />
 			<mksc:HelloWorldText click="onHelloWorldClick" />
 		</content>
