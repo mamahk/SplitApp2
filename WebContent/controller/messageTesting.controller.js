@@ -13,7 +13,7 @@ sap.ui.define([
 			this.oMessageManager.registerMessageProcessor(this.oMessageProcessor);
 			
 			
-			var oDummyModel = new sap.ui.model.json.JSONModel("./localService/mockdata/DummyJson2.json");
+			var oDummyModel = new sap.ui.model.json.JSONModel("./localService/mockdata/DummyJson.json");
 			this.getView().setModel(oDummyModel, "Dummy");
 			
 //			this.oMessageManager.registerObject(this.getView(), true);
